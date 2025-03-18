@@ -4,7 +4,7 @@ metadata:
   name: argocd-app
   namespace: argocd
 spec:
-  project: default
+  project: 622162-project
   source:
     repoURL: "https://github.com/Pathivada-Varshini/argocd-lab.git"  # Your GitHub Repo
     targetRevision: main
