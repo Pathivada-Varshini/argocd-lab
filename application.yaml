@@ -2,16 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argocd-app
-  namespace: argocd
+  namespace: openshift-gitops
 spec:
-  project: 622162-project
+  project: 622162-project  # Ensure it matches the ArgoCD project name
   source:
-    repoURL: "https://github.com/Pathivada-Varshini/argocd-lab.git"  # Your GitHub Repo
+    repoURL: "https://github.com/Pathivada-Varshini/argocd-lab.git"
     targetRevision: main
-    path: k8s  # Folder where YAML files are stored
+    path: k8s
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: 622162-project
   syncPolicy:
     automated:
       prune: true
