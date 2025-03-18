@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/Pathivada-Varshini/argocd-lab.git"  # Your GitHub Repo
+    targetRevision: main
+    path: k8s  # Folder where YAML files are stored
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
